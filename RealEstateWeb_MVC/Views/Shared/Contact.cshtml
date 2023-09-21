@@ -1,22 +1,97 @@
-﻿<div class="container">
-    <div class="row">
-        <h2>Our Agents</h2>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">John Sner</h5>
-                    <p class="card-text">Phone: +123-456-7890</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Melissa Know</h5>
-                    <p class="card-text">Phone: +987-654-3210</p>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat this block for each agent -->
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <!-- Include CSS styles for the page -->
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            background-image: url('/images/home/slide1.jpg'); /* Set your background image URL */
+            background-size: cover;
+           
+            
+            
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Add background color with opacity */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            flex: 1; /* Expand to fill remaining vertical space */
+            display: flex;
+            flex-direction: column; /* Stack child elements vertically */
+        }
+
+        .agent-card {
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #fff; /* Add a white background for agent cards */
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you!</p>
     </div>
-</div>
+
+    <div class="container">
+
+        
+            <h4>Our Agents Are Available 24/7</h4>
+            
+      
+
+        <div class="agent-card">
+            <h4>John Doe</h4>
+            <strong>Phone:</strong>+49 123 456 7890<br>
+            <strong>Email:</strong> Johndoe@gmail.com
+        </div>
+
+        <div class="agent-card">
+            <h4>Jane Smith</h4>
+            <strong>Phone:</strong> +49 987 654 3210<br>
+            <strong>Email:</strong> Janesmith@gmail.com
+        </div>
+
+        <!-- Add more agent cards as needed -->
+
+        <div class="map">
+            <!-- Replace 'map-image.jpg' with your map image -->
+            <img src="/images/home/MAPBerlin.png" alt="Office Location" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div class="agent-card">
+            <h2>Contact Information</h2>
+            <p>
+                <strong>Address:</strong> 123 Mock Street, Berlin, Germany<br>
+                <strong>Email:</strong> contact@example.com<br>
+                <strong>Phone:</strong> +49 123 456 7890
+            </p>
+        </div>
+    </div>
+
+    
+</body>
+</html>
