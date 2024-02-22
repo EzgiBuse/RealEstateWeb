@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,8 @@ namespace RealEstateWeb.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration =30)]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<ApiResponse>> GetEstates() {
             try
@@ -51,6 +54,7 @@ namespace RealEstateWeb.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ResponseCache(Duration = 30)]
         public async Task<ActionResult<ApiResponse>> GetEstate(int id)
         {
             try
@@ -82,6 +86,7 @@ namespace RealEstateWeb.Controllers
         }
         
         [HttpPost(Name = "CreateEstate")]
+        [Authorize(Roles ="Admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -113,6 +118,7 @@ namespace RealEstateWeb.Controllers
 
         //[HttpDelete("{id}", Name = "DeleteEstate")]
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponse>> DeleteEstate(int id)
         {
             try
@@ -144,6 +150,7 @@ namespace RealEstateWeb.Controllers
         }
 
         [HttpPut("{id}", Name = "UpdateEstate")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ApiResponse>> UpdateEstate(int id, [FromBody] EstateUpdateDto updateEstateDto)
         {
             try
@@ -170,6 +177,7 @@ namespace RealEstateWeb.Controllers
         }
 
         [HttpPatch("{id}", Name = "UpdatePartialEstate")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdatePartialEstate(int id, JsonPatchDocument<EstateUpdateDto> estateUpdateDto)
         {
             if (estateUpdateDto == null || id != 0)

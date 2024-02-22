@@ -30,6 +30,7 @@ namespace RealEstateWeb.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ResponseCache(Duration = 30)]
         public async Task<ActionResult<ApiResponse>> GetEstateNumbers() {
             try
             {
@@ -53,6 +54,7 @@ namespace RealEstateWeb.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ResponseCache(Duration = 30)]
         public async Task<ActionResult<ApiResponse>> GetEstateNumber(int id)
         {
             try
